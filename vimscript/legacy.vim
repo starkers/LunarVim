@@ -41,3 +41,7 @@ map <silent><leader>qq :qa!<cr>
 
 nnoremap n nzzzv
 nnoremap N Nzzzv
+
+
+"" install with:  go get github.com/starkers/yamlfmt
+nnoremap <leader>yf :%!yamlfmt<CR>
