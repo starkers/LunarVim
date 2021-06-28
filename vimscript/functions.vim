@@ -37,10 +37,10 @@ command! DebugGetSession lua require'dap'.session()
 
 " Available Debug Adapters:
 "   https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/
-" 
+"
 " Adapter configuration and installation instructions:
 "   https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
-" 
+"
 " Debug Adapter protocol:
 "   https://microsoft.github.io/debug-adapter-protocol/
 
@@ -58,16 +58,60 @@ command! DebugGetSession lua require'dap'.session()
 autocmd! User GoyoEnter lua require('gitsigns').toggle_signs()
 autocmd! User GoyoLeave lua require('gitsigns').toggle_signs()
 
-autocmd User GoyoEnter set laststatus=0 
+autocmd User GoyoEnter set laststatus=0
 autocmd User GoyoLeave set laststatus=2
 
 " autocmd! User GoyoEnter lua require('galaxyline').disable_galaxyline()
 " autocmd! User GoyoLeave lua require('galaxyline').galaxyline_augroup()
 
 function! QuickFixToggle()
-    if empty(filter(getwininfo(), 'v:val.quickfix'))
-        copen
-    else
-        cclose
-    endif
+  if empty(filter(getwininfo(), 'v:val.quickfix'))
+    copen
+  else
+    cclose
+  endif
 endfunction
+
+
+
+nnoremap <leader>z :GitGutterToggle<cr>
+
+
+function! ToggleGitSigns()
+  if(&signcolumn == "yes")
+    set signcolumn=no
+    Gitsigns toggle_signs<cr>
+  else
+    set signcolumn=yes
+    Gitsigns toggle_signs<cr>
+  endif
+endfunction
+
+function! NumberToggle()
+  if(&number == 1)
+    if (&relativenumber == 1)
+      set norelativenumber
+      " echom "showing absolute line numbers"
+    else
+      set norelativenumber
+      set nonu
+      " echom "disabling line numbers"
+    endif
+  else
+    " echom "enabling line-numbers"
+    set relativenumber
+    set number
+  endif
+endfunction
+"leader n for number toggle is easier to recall than
+" nnoremap <leader>n :call NumberToggle()<cr>
+" call NumberToggle()
+
+
+function! TrimWhitespace()
+    let l:save = winsaveview()
+    %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+nnoremap <leader>- :call TrimWhitespace()<cr>
+
