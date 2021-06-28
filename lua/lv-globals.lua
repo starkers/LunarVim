@@ -11,7 +11,7 @@ O = {
     number = true,
     relative_number = true,
     cursorline = true,
-    shell = 'bash',
+    shell = 'fish',
 	timeoutlen = 100,
     nvim_tree_disable_netrw = 0,
     extras = false,
@@ -29,8 +29,8 @@ O = {
     python = {
         linter = '',
         -- @usage can be 'yapf', 'black'
-        formatter = '',
-        autoformat = false,
+        formatter = 'black',
+        autoformat = true,
         isort = false,
         diagnostics = {virtual_text = {spacing = 0, prefix = ""}, signs = true, underline = true},
 		analysis = {type_checking = "basic", auto_search_paths = true, use_library_code_types = true}
@@ -76,14 +76,13 @@ O = {
 
 	dashboard = {
 		custom_header = {
-'                 _..._                                                                           ',
-'               .\'   (_`.    _                         __     ___           ',
-'              :  .      :  | |   _   _ _ __   __ _ _ _\\ \\   / (_)_ __ ___  ',
-'              :)    ()  :  | |  | | | | \'_ \\ / _` | \'__\\ \\ / /| | \'_ ` _ \\ ',
-'              `.   .   .\'  | |__| |_| | | | | (_| | |   \\ V / | | | | | | |',
-'                `-...-\'    |_____\\__,_|_| |_|\\__,_|_|    \\_/  |_|_| |_| |_|',
+'          __     ___',
+'          \\ \\   / (_)_ ___ ___',
+'           \\ \\ / /| | \'_  `_  \\',
+'            \\ V / | | | | | | |',
+'             \\_/  |_|_| |_| |_|',
 		},
-		footer= {'chrisatmachine.com'}
+		footer= {'David Stark'}
 	}
 }
 

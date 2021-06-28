@@ -36,3 +36,10 @@ nnoremap <leader>a :Ag<space>
 nnoremap <C-a> :Ag <C-R><C-W><cr>
 
 map <silent><leader>qq :qa!<cr>
+
+
+
+
+
+nnoremap n nzzzv
+nnoremap N Nzzzv

@@ -65,8 +65,14 @@ vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<CR>', {noremap 
 vim.api.nvim_set_keymap('n', '<Leader>;', ':Dashboard<CR>', {noremap = true, silent = true})
 
 -- Comments
-vim.api.nvim_set_keymap("n", "<leader>/", ":CommentToggle<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>", {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap("n", "<leader>/", ":CommentToggle<CR>", {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>/", ":Commentary<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("v", "<leader>/", ":Commentary<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-_>", ":Commentary<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("v", "<C-_>", ":Commentary<CR>", {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap("n", "<C-_>", ":Commentary<CR>", {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap("v", "<C-_>", ":Commentary<CR>", {noremap = true, silent = true})
 
 -- close buffer
 vim.api.nvim_set_keymap("n", "<leader>c", ":BufferClose<CR>", {noremap = true, silent = true})
@@ -79,11 +85,12 @@ vim.api.nvim_set_keymap('n', '<leader>p', ":lua require'telescope'.extensions.pr
 
 local mappings = {
 
-    ["/"] = "Comment",
+    -- ["/"] = "Comment",
+    ["-"] = "Trim Whitespace",
     ["c"] = "Close Buffer",
     ["e"] = "Explorer",
     ["f"] = "Find File",
-    ["h"] = "No Highlight",
+    -- ["h"] = "No Highlight",
     ["p"] = "Projects",
     b = {
       name = "+Buffers",
@@ -162,17 +169,17 @@ local mappings = {
     },
     s = {
         name = "Search",
-        b = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
+        -- b = {"<cmd>Telescope git_branches<cr>", "Checkout branch"},
         c = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
         d = {"<cmd>Telescope lsp_document_diagnostics<cr>", "Document Diagnostics"},
         D = {"<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics"},
         f = {"<cmd>Telescope find_files<cr>", "Find File"},
+        g = {"<cmd>Telescope live_grep<cr>", "Grep"},
         h = {"<cmd>Telescope help_tags<cr>", "Find Help"},
         m = {"<cmd>Telescope marks<cr>", "Marks"},
         M = {"<cmd>Telescope man_pages<cr>", "Man Pages"},
         r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
-        R = {"<cmd>Telescope registers<cr>", "Registers"},
-        t = {"<cmd>Telescope live_grep<cr>", "Text"}
+        R = {"<cmd>Telescope registers<cr>", "Registers"}
     },
     S = {
         name = "Session",
@@ -182,6 +189,8 @@ local mappings = {
     -- extras
     z = {
         name = "Zen",
+        g = {"<cmd>:call ToggleGitSigns()<cr>", "toggle git signs"},
+        n = {"<cmd>:call NumberToggle()<cr>", "toggle number column"},
         s = {"<cmd>TZBottom<cr>", "toggle status line"},
         t = {"<cmd>TZTop<cr>", "toggle tab bar"},
         z = {"<cmd>TZAtaraxis<cr>", "toggle zen"}
