@@ -164,11 +164,11 @@ return require("packer").startup(function(use)
         require_plugin("vimtex")
 
         -- -- Commentary across chunks of stuff gcip styleee
-        -- use {"tpope/vim-commentary", opt = true, cmd = {'Commentary'}}
-        -- use {"junegunn/vim-easy-align", opt = true, cmd = {'EasyAlign'}}
+        use {"tpope/vim-commentary", opt = true, cmd = {'Commentary'}}
+        use {"junegunn/vim-easy-align", opt = true, cmd = {'EasyAlign'}}
 
-        -- use {"junegunn/fzf", opt = true }
-        -- use {"junegunn/fzf.vim", opt = true, cmd = {'Ag'}}
+        use {"junegunn/fzf", opt = true }
+        use {"junegunn/fzf.vim", opt = true, cmd = {'Ag'}}
 
         -- folke/todo-comments.nvim
         -- gennaro-tedesco/nvim-jqx

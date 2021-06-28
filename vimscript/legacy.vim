@@ -1,4 +1,3 @@
-
 " always return to same location in a file when re-opening it
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -19,8 +18,7 @@ nmap ga <Plug>(EasyAlign)
 
 
 
-" FZF + AG
-set wildmode=list:longest,list:full
+"" FZF + AG
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 
